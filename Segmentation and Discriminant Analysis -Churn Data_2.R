@@ -61,9 +61,9 @@ text(ModelChurnTree, pretty = 0)
 
 #Test the predictions of the trained model
 testpredictions = predict(ModelChurnTree, testdata, type ="class")
-# 'class': for classification			
-# 'prob': to compute the probability of each class			
-# 'vector': Predict the mean response at the node level
+# type = c("vector", "tree", "class", "where")
+# 'class': for classification	
+# Default --> "vector" --> in case of a classification tree will return a vector containing the class probabilities for each of your observation row
 
 #Find the accuracy of the model
 cm =table(testpredictions, testdata$Exited)
@@ -102,9 +102,9 @@ text(prune.trees, pretty=0)
 
 #Test the predictions of the trained model
 testpredictions2 = predict(prune.trees, testdata, type ="class")
-# 'class': for classification			
-# 'prob': to compute the probability of each class			
-# 'vector': Predict the mean response at the node level
+# type = c("vector", "tree", "class", "where")
+# 'class': for classification	
+# Default --> "vector" --> in case of a classification tree will return a vector containing the class probabilities for each of your observation row
 
 #Find the accuracy of the model
 cm2 =table(testpredictions2, testdata$Exited)
@@ -133,9 +133,9 @@ summary(prune.trees2)
 
 #Test the predictions of the trained model
 testpredictions3 = predict(prune.trees2, testdata, type ="class")
-# 'class': for classification			
-# 'prob': to compute the probability of each class			
-# 'vector': Predict the mean response at the node level
+# type = c("vector", "tree", "class", "where")
+# 'class': for classification	
+# Default --> "vector" --> in case of a classification tree will return a vector containing the class probabilities for each of your observation row
 
 #Find the accuracy of the model
 cm3 =table(testpredictions3, testdata$Exited)
@@ -149,7 +149,3 @@ accuracy3 = (cm3[1,1] + cm3[2,2]) / (cm3[1,1] + cm3[2,2] + cm3[1,2] + cm3[2,1])
 print(accuracy3)
 # 0.8368
 # Accuracy decreased compared to first model. "Yes" decreased
-
-
-
-
