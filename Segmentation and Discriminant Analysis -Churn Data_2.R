@@ -1,3 +1,6 @@
+# CUSTOMER CHURN DATA / TREE CHURN
+# Gülhan Damla Aşık - 2000136
+
 getwd()
 library (tree)
 library (ISLR)
